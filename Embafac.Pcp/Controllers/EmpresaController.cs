@@ -8,24 +8,24 @@ using System.Web.Mvc;
 
 namespace Embafac.Pcp.Controllers
 {
-    public class TipoVeiculoController : Controller
+    public class EmpresaController : Controller
     {
-        // GET: TipoVeiculo
+        // GET: Empresa
         public ActionResult Index()
         {
             var db = new EmbafacContext("conn");
-            ViewBag.TipoVeiculo = db.TipoVeiculos.ToList();
+            ViewBag.Empresa = db.Empresas.ToList();
 
             return View();
         }
 
-        // GET: TipoVeiculo/Create
+        // GET: Empresa/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: TipoVeiculo/Create
+        // POST: Empresa/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -33,12 +33,13 @@ namespace Embafac.Pcp.Controllers
 
             try
             {
-                TipoVeiculo tipoVeiculo = new TipoVeiculo
+                Empresa empresa = new Empresa
                 {
-                    Descricao = collection["Descricao"]
+                    Nome = collection["Nome"],
+                    Endereco = collection["Endereco"]
                 };
 
-                db.TipoVeiculos.Add(tipoVeiculo);
+                db.Empresas.Add(empresa);
                 db.SaveChanges();
 
                 // TODO: Add insert logic here
@@ -51,23 +52,19 @@ namespace Embafac.Pcp.Controllers
             }
         }
 
-        // GET: TipoVeiculo/Edit/5
+        // GET: Empresa/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-
-        // GET: TipoVeiculo/Delete/5
-        public ActionResult Delete(int id)
+        // POST: Empresa/Edit/5
+        [HttpPost]
+        public ActionResult Edit(int id, FormCollection collection)
         {
             try
             {
-                var db = new EmbafacContext("conn");
-                var tipoVeiculo = db.TipoVeiculos.Where(x => x.Id == id).FirstOrDefault();
-
-                db.TipoVeiculos.Remove(tipoVeiculo);
-                db.SaveChanges();
+                // TODO: Add update logic here
 
                 return RedirectToAction("Index");
             }
@@ -77,5 +74,26 @@ namespace Embafac.Pcp.Controllers
             }
         }
 
+        // GET: Empresa/Delete/5
+        public ActionResult Delete(int id)
+        {
+            return View();
+        }
+
+        // POST: Empresa/Delete/5
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add delete logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
     }
 }

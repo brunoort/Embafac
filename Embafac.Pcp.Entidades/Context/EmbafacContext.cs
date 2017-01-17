@@ -13,6 +13,7 @@ namespace Embafac.Pcp.Entidades
         {
             _caminhao = Caminhoes;
             _tipoVeiculo = TipoVeiculos;
+            _empresa = Empresas;
         }
 
         private IDbSet<Caminhao> _caminhao;
@@ -27,6 +28,11 @@ namespace Embafac.Pcp.Entidades
             get { return _tipoVeiculo ?? (_tipoVeiculo = DbSet<TipoVeiculo>()); }
         }
 
+        private IDbSet<Empresa> _empresa;
+        public IDbSet<Empresa> Empresas
+        {
+            get { return _empresa ?? (_empresa = DbSet<Empresa>()); }
+        }
         /// <summary>
         /// Returns a DbSet for the specified type, this allows CRUD operations to be performed for 
         /// the given entity in the context.  
@@ -52,6 +58,7 @@ namespace Embafac.Pcp.Entidades
 
             base.OnModelCreating(modelBuilder);
             //Recarregar dados da base
+            Database.SetInitializer<EmbafacContext>(null);
             //Database.SetInitializer(new Initialiser());
 
             //Mapeamento das chaves estrangeiras (One to Many)

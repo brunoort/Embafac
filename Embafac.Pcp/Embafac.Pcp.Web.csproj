@@ -149,6 +149,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CaminhaoController.cs" />
+    <Compile Include="Controllers\EmpresaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TipoVeiculoController.cs" />
     <Compile Include="Global.asax.cs">
@@ -202,6 +203,8 @@
     <Content Include="Views\Caminhao\Index.cshtml" />
     <Content Include="Views\TipoVeiculo\Index.cshtml" />
     <Content Include="Views\TipoVeiculo\Create.cshtml" />
+    <Content Include="Views\Empresa\Index.cshtml" />
+    <Content Include="Views\Empresa\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

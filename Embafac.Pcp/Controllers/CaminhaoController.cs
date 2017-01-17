@@ -23,8 +23,7 @@ namespace Embafac.Pcp.Controllers
 
             return View();
         }
-
-
+        
         // GET: Caminhao/Create
         public ActionResult Create()
         {
@@ -69,14 +68,7 @@ namespace Embafac.Pcp.Controllers
                 return View();
             }
         }
-
-        // GET: Caminhao/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-
+        
         // GET: Caminhao/Delete/5
         public ActionResult Delete(int id)
         {
@@ -95,7 +87,13 @@ namespace Embafac.Pcp.Controllers
                 return View();
             }
         }
-
         
+        // GET: Caminhao/Edit/5
+        public ActionResult Edit(int id)
+        {
+            return View();
+        }
+
+
     }
 }

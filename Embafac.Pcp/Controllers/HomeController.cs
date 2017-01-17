@@ -11,15 +11,6 @@ namespace Embafac.Pcp.Controllers
         public ActionResult Index()
         {
             return View();
-        }
-
-        public ActionResult Cadastro()
-        {
-            ViewBag.Message = "Cadastro de cam.";
-
-            return View();
-        }
-
-        
+        }       
     }
 }

@@ -1,11 +1,11 @@
-﻿@model IEnumerable<Embafac.Pcp.Entidades.Models.TipoVeiculo>
+﻿@model IEnumerable<Embafac.Pcp.Entidades.Models.Empresa>
 
 @{
     ViewBag.Title = "View";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Tipo de Veículos</h2>
+<h2>Empresa</h2>
 
 <p>
     @Html.ActionLink("Criar novo registro", "Create")
@@ -13,19 +13,28 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Descricao)
+            Id
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Endereco)
         </th>
         <th></th>
-    </tr>
+</tr>
 
 
-@foreach (var item in ViewBag.TipoVeiculo) { 
+@foreach (var item in ViewBag.Empresa) { 
     <tr>
         <td>
             @item.Id
         </td>
         <td>
-            @item.Descricao
+            @item.Nome
+        </td>
+        <td>
+            @item.Endereco
         </td>
        <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
