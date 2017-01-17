@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Embafac.Pcp.Entidades.Models.Caminhao>
+
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Caminhões</h2>
+
+<p>
+    @Html.ActionLink("Criar novo registro", "Create")
+</p>
+<table class="table" style="font-size:12px;">
+    <tr>
+        <th width="100">
+            @Html.DisplayNameFor(model => model.Placa)
+        </th>
+        <th>
+            Tipo
+        </th>
+        <th>
+           em Pé (Entrega)
+        </th>
+        <th>
+            Tambor Alto - Deitado  (Entrega)
+        </th>
+        <th>
+            Tambor Baixo - Deitado  (Entrega)
+        </th>
+        <th>
+            em Pé (Coleta)
+        </th>
+        <th>
+            Tambor Alto - Deitado  (Coleta)
+        </th>
+        <th>
+            Tambor Baixo - Deitado  (Coleta)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in ViewBag.Caminhoes)
+{
+    <tr>
+        <td>
+            @item.Placa
+        </td>
+        <td>
+            <b>
+                @{ int vTipoVeiculo = @item.TipoVeiculo.Id; }
+               
+                @foreach (var tipo in ViewBag.TipoVeiculo)
+                {
+                    if (tipo.Id == @vTipoVeiculo)
+                    {
+                        @Html.Raw("<span class='ftColorStatus'>" + tipo.Descricao + "</span>");
+                    }
+                }
+            </b>
+        </td>
+
+        <td>
+            @item.CapacidadeEntregaTamborEmPe
+        </td>
+        <td>
+            @item.CapacidadeEntregaTamborAltoDeitado
+        </td>
+        <td>
+            @item.CapacidadeEntregaTamborBaixoDeitado
+        </td>
+        <td>
+            @item.CapacidadeColetaTamborEmPe
+        </td>
+        <td>
+            @item.CapacidadeColetaTamborAltoDeitado
+        </td>
+        <td>
+            @item.CapacidadeColetaTamborBaixoDeitado
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Remover", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

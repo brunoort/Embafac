@@ -1,0 +1,88 @@
+﻿@using System.Collections
+@model Embafac.Pcp.Entidades.Models.Caminhao
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("Create", "Caminhao", FormMethod.Post, new { enctype = "multipart/form-data", style = "width:100%;", id = "signupform" }))
+        {
+            <div class="step-pane active" id="step1">
+                <div class="span4">
+                    <div>
+                        <h4>Dados </h4>
+                    </div>
+
+                    <div class="row span12">
+                        <div class="editor-field">
+                            Placa : <input id="Placa" name="Placa" type="text"  value="" maxlength="10"/>
+                        </div>
+                    </div>
+
+                    
+                    
+                    <div class="row span12">
+                        <div class="editor-field">
+                            Tipo Veiculo @Html.DropDownListFor(Model => Model.TipoVeiculo, new SelectList(ViewBag.TipoVeiculo as IEnumerable, "Id", "Descricao"),
+                                                "Selecione um tipo de veículo", new { Name = "ddlTipoVeiculo", id = "ddlTipoVeiculo" })
+                        </div>
+                    </div>
+
+                    <div class="row span12">
+                        <div class="editor-field">
+                            CapacidadeEntregaTamborEmPe : <input id="CapacidadeEntregaTamborEmPe" name="CapacidadeEntregaTamborEmPe" type="number" max="1000"  value="0"  />
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="editor-field">
+                            CapacidadeEntregaTamborAltoDeitado: <input id="Placa" name="CapacidadeEntregaTamborAltoDeitado" type="number" max="1000" value="0" />
+                        </div>
+                    </div>
+
+                    <div class="row span12">
+
+                        <div class="editor-field">
+                            CapacidadeEntregaTamborBaixoDeitado: <input id="CapacidadeEntregaTamborBaixoDeitado" name="CapacidadeEntregaTamborBaixoDeitado" type="number" max="1000"  value="0" />
+                        </div>
+                    </div>
+
+                    <div class="row span12">
+                        <div class="editor-field">
+                            CapacidadeColetaTamborEmPe : <input id="CapacidadeColetaTamborEmPe" name="CapacidadeColetaTamborEmPe" type="number" max="1000"  value="0" />
+                        </div>
+                    </div>
+
+                    <div class="row span12">
+
+                        <div class="editor-field">
+                            CapacidadeColetaTamborAltoDeitado: <input id="CapacidadeColetaTamborAltoDeitado" name="CapacidadeColetaTamborAltoDeitado" type="number" max="1000" value="0" />
+                        </div>
+                    </div>
+
+                    <div class="row span12">
+
+                        <div class="editor-field">
+                            CapacidadeColetaTamborBaixoDeitado:    <input id="CapacidadeColetaTamborBaixoDeitado" name="CapacidadeColetaTamborBaixoDeitado" type="number"  max="1000" value="0" />
+                        </div>
+                    </div>
+
+                    <div class="row span12">
+                        
+                        <div class="editor-field">
+                            <input type="submit" id="btnAddItem" value="Adicionar item" /><br /><br />
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+        }
+    </div>
+</body>
+</html>

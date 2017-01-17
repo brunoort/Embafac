@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Tipo Veículo</title>
+</head>
+<body>
+    <h2>Tipos de Veículo</h2>
+
+    <p>
+        @Html.ActionLink("Criar novo registro", "Create")
+    </p>
+    <div>
+        @using (Html.BeginForm("Create", "TipoVeiculo", FormMethod.Post, new { enctype = "multipart/form-data", style = "width:100%;", id = "signupform" }))
+        {
+            <div class="step-pane active" id="step1">
+                <div class="span4">
+                    <div>
+                        <h4>Dados </h4>
+                    </div>
+
+                    <div class="row span12">
+                        <div class="editor-field">
+                            Descricao : <input id="Descricao" name="Descricao" type="text"  value="" maxlength="20"/>
+                        </div>
+                    </div>
+
+
+                    <div class="row span12">
+                        
+                        <div class="editor-field">
+                            <input type="submit" id="btnAddItem" value="Adicionar item" /><br /><br />
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+        }
+    </div>
+</body>
+</html>
