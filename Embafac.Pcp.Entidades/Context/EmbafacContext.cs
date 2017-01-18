@@ -14,6 +14,9 @@ namespace Embafac.Pcp.Entidades
             _caminhao = Caminhoes;
             _tipoVeiculo = TipoVeiculos;
             _empresa = Empresas;
+            _planejamento = Planejamentos;
+            _tipo = Tipos;
+            _carregamentoDescarregamento = CarregamentosDescarregamentos;
         }
 
         private IDbSet<Caminhao> _caminhao;
@@ -32,6 +35,24 @@ namespace Embafac.Pcp.Entidades
         public IDbSet<Empresa> Empresas
         {
             get { return _empresa ?? (_empresa = DbSet<Empresa>()); }
+        }
+
+        private IDbSet<Planejamento> _planejamento;
+        public IDbSet<Planejamento> Planejamentos
+        {
+            get { return _planejamento ?? (_planejamento = DbSet<Planejamento>()); }
+        }
+
+        private IDbSet<Tipo> _tipo;
+        public IDbSet<Tipo> Tipos
+        {
+            get { return _tipo ?? (_tipo = DbSet<Tipo>()); }
+        }
+
+        private IDbSet<CarregamentoDescarregamento> _carregamentoDescarregamento;
+        public IDbSet<CarregamentoDescarregamento> CarregamentosDescarregamentos
+        {
+            get { return _carregamentoDescarregamento ?? (_carregamentoDescarregamento = DbSet<CarregamentoDescarregamento>()); }
         }
         /// <summary>
         /// Returns a DbSet for the specified type, this allows CRUD operations to be performed for 
